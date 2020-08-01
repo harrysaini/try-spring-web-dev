@@ -1,6 +1,10 @@
 # Compiled class file
 *.class
 
+
+.metadata/
+Servers/
+
 # Log file
 *.log
 
