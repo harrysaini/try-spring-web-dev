@@ -6,6 +6,8 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Random;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,7 +15,9 @@ public class FileFortuneService implements FortuneService {
 
 	private List<String> fortunes;
 
-	public FileFortuneService() {
+	@PostConstruct
+	private void setup() {
+		System.out.println("FileFortune service setup");
 		Path filePath = Path.of("./resources/data.txt");
 
 		try {
