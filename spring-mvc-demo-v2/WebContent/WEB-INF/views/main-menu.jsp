@@ -15,8 +15,21 @@
 		Show Form
 	</a>
 	
+	<br>
+	<br>
+	
 	<a href="student/showForm">
 		Show StudentForm
 	</a>
+	
+	
+	<br>
+	<br>
+	
+	<a href="customer/showForm">
+		Show Customer Form
+	</a>
+	
+	
 </body>
 </html>

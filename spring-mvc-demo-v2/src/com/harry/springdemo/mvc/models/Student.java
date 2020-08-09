@@ -1,4 +1,4 @@
-package com.harry.springdemo.mvc;
+package com.harry.springdemo.mvc.models;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

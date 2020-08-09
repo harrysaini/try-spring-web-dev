@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.harry.springdemo.mvc.models.Student;
+
 @Controller
 @RequestMapping("/student")
 public class StudentController {
