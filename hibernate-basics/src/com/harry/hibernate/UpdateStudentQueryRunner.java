@@ -1,16 +1,12 @@
 package com.harry.hibernate;
 
-import java.text.ParseException;
-import java.util.Date;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.harry.hibernate.entity.Student;
-import com.harry.hibernate.utils.DateUtils;
 
-public class HibernateRunner {
+public class UpdateStudentQueryRunner {
 
 	public static void main(String[] args) {
 
@@ -24,33 +20,26 @@ public class HibernateRunner {
 
 			session.beginTransaction();
 
-			String theDateOfBirthStr = "31/12/1998";
+			Student student = session.get(Student.class, 4);
 
-			Date theDateOfBirth = DateUtils.parseDate(theDateOfBirthStr);
-
-			Student tempStudent = new Student("Pauly", "Doe", "paul1@luv.com", theDateOfBirth);
-
-			session.save(tempStudent);
+			System.out.println("Updating");
+			student.setFirstName("BABA sd RAM");
+			System.out.println("After updating");
 
 			session.getTransaction().commit();
-
-			System.out.println(tempStudent);
-
-			System.out.println("Saved");
 
 			session = sessionFactory.getCurrentSession();
 
 			session.beginTransaction();
 
-			Student student2 = session.createQuery("from Student where email='paul1@luv.com'", Student.class)
-					.getSingleResult();
+			int executeUpdate = session.createQuery("update Student SET email='test@gmail.com'").executeUpdate();
 
-			System.out.println(student2);
+			System.out.println(executeUpdate);
 
 			session.getTransaction().commit();
 
-		} catch (ParseException e) {
-			e.printStackTrace();
+			System.out.println("Done");
+
 		} finally {
 			sessionFactory.close();
 		}

@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.harry.hibernate.entity.Student;
 
-public class UpdateQueryRunner {
+public class UpdateStudentQueryRunner {
 
 	public static void main(String[] args) {
 
@@ -20,10 +20,10 @@ public class UpdateQueryRunner {
 
 			session.beginTransaction();
 
-			Student student = session.get(Student.class, 1);
+			Student student = session.get(Student.class, 4);
 
 			System.out.println("Updating");
-			student.setFirstName("BABA RAM");
+			student.setFirstName("BABA sd RAM");
 			System.out.println("After updating");
 
 			session.getTransaction().commit();
