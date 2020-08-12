@@ -19,10 +19,10 @@ public class EmployeeExerciseRunner {
 		try {
 
 			// Create
-			// createEmployee(sessionFactory);
+			createEmployee(sessionFactory);
 
 			// Create many
-			createMany(sessionFactory);
+			// createMany(sessionFactory);
 
 			// Get
 			getById(sessionFactory);
@@ -123,6 +123,7 @@ public class EmployeeExerciseRunner {
 			Employee employee = new Employee("Ram" + i, "Dev" + random.nextInt(), "Google");
 
 			session.save(employee);
+			System.out.println("saviung" + employee);
 
 		}
 
@@ -137,7 +138,9 @@ public class EmployeeExerciseRunner {
 
 		session.beginTransaction();
 
+		System.out.println("saving");
 		session.save(employee);
+		System.out.println("saved");
 
 		session.getTransaction().commit();
 	}
