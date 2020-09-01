@@ -1,7 +1,6 @@
 package com.harry.springaop;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -9,9 +8,6 @@ import com.harry.springaop.dao.AccountDAO;
 import com.harry.springaop.service.TrafficFortuneService;
 
 public class AfterReturningDemo {
-    
-    private static Logger logger = Logger.getLogger(AfterReturningDemo.class.getName());
-    
 
     public static void main(String[] args) {
 	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConfigClass.class);
@@ -20,11 +16,11 @@ public class AfterReturningDemo {
 
 	afterReturningDemo(accountDAO);
 
-	logger.info("\n\n\n--------------\n\n");
+	System.out.println("\n\n\n--------------\n\n");
 
 	afterThrowingDemo(accountDAO);
 
-	logger.info("\n\n\n--------------\n\n");
+	System.out.println("\n\n\n--------------\n\n");
 
 	aroundAdviceDemo(context);
     }
@@ -33,13 +29,13 @@ public class AfterReturningDemo {
 	TrafficFortuneService trafficFortuneService = context.getBean("trafficFortuneService",
 		TrafficFortuneService.class);
 
-	logger.info("Getting fortune");
+	System.out.println("Getting fortune");
 
 	String fortune = trafficFortuneService.getFortune();
 
-	logger.info("Fortune is: " + fortune);
+	System.out.println("Fortune is: " + fortune);
 
-	logger.info("Finished");
+	System.out.println("Finished");
 
 	context.close();
     }
@@ -47,8 +43,8 @@ public class AfterReturningDemo {
     private static void afterReturningDemo(AccountDAO accountDAO) {
 	List<Account> accounts = accountDAO.findAccounts(false);
 
-	logger.info("-> Main");
-	logger.info(accounts.toString());
+	System.out.println("-> Main");
+	System.out.println(accounts);
     }
 
     private static void afterThrowingDemo(AccountDAO accountDAO) {
@@ -57,10 +53,10 @@ public class AfterReturningDemo {
 	try {
 
 	    accounts = accountDAO.findAccounts(true);
-	    logger.info(accounts.toString());
+	    System.out.println(accounts);
 	} catch (Exception e) {
-	    logger.info("-> Main exception");
-	    logger.info(e.toString());
+	    System.out.println("-> Main exception");
+	    System.out.println(e);
 	}
 
     }

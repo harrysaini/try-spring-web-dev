@@ -82,7 +82,13 @@ public class AnalyseAspect {
 
 	long before = System.currentTimeMillis();
 
-	Object res = proceedingJoinPoint.proceed();
+	Object res;
+	try {
+	    res = proceedingJoinPoint.proceed();
+	} catch (Throwable e) {
+	    // handle error here if you want
+	    e.printStackTrace();
+	}
 
 	long after = System.currentTimeMillis();
 
